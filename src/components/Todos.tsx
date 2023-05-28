@@ -6,11 +6,11 @@ import classes from "./Todos.module.css";
 const Todos: React.FC<{
   items: Todo[];
   removeTodo: (target: string) => void;
-}> = (props) => {
+}> = ({ items, removeTodo }) => {
   return (
     <ul className={classes.todos}>
-      {props.items.map((item) => (
-        <TodoItem key={item.id} todo={item} removeTodo={props.removeTodo} />
+      {items.map((item) => (
+        <TodoItem key={item.id} todo={item} removeTodo={removeTodo} />
       ))}
     </ul>
   );
