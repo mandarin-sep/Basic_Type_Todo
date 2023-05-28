@@ -1,9 +1,13 @@
-function Todos() {
+import React from "react";
+import Todo from "../models/todo";
+import { TodoItem } from "./TodoItem";
+
+export const Todos: React.FC<{ items: Todo[] }> = (props) => {
   return (
     <ul>
-      <li>유데미 듣기</li>
+      {props.items.map((item) => (
+        <TodoItem key={item.id} text={item.text} />
+      ))}
     </ul>
   );
-}
-
-export default Todos;
+};
