@@ -1,11 +1,21 @@
-import { Todos } from "./components/Todos";
+import NewTodo from "./components/NewTodo";
+import Todos from "./components/Todos";
 import Todo from "./models/todo";
+import { useState } from "react";
 
 function App() {
-  const todos = [new Todo("유데미 강의 듣기"), new Todo("프로그래머스")];
+  const [todolist, setTodolist] = useState<Todo[]>([]);
+
+  const addTodoHandler = (todoText: string) => {
+    const newTodo = new Todo(todoText);
+
+    setTodolist(todolist.concat(newTodo));
+  };
+
   return (
     <div>
-      <Todos items={todos} />
+      <NewTodo onAddTodo={addTodoHandler} />
+      <Todos items={todolist} />
     </div>
   );
 }
