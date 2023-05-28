@@ -8,14 +8,18 @@ function App() {
 
   const addTodoHandler = (todoText: string) => {
     const newTodo = new Todo(todoText);
-
     setTodolist(todolist.concat(newTodo));
+  };
+
+  const removeTodoHandler = (target: string) => {
+    const newTodo = todolist.filter((todo) => todo.id !== target);
+    setTodolist(newTodo);
   };
 
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todolist} />
+      <Todos items={todolist} removeTodo={removeTodoHandler} />
     </div>
   );
 }
