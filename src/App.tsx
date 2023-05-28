@@ -7,13 +7,11 @@ function App() {
   const [todolist, setTodolist] = useState<Todo[]>([]);
 
   const addTodoHandler = (todoText: string) => {
-    const newTodo = new Todo(todoText);
-    setTodolist(todolist.concat(newTodo));
+    setTodolist(todolist.concat(new Todo(todoText)));
   };
 
   const removeTodoHandler = (target: string) => {
-    const newTodo = todolist.filter((todo) => todo.id !== target);
-    setTodolist(newTodo);
+    setTodolist(todolist.filter((todo) => todo.id !== target));
   };
 
   return (
