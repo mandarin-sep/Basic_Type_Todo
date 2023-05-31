@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { TodosContext } from "../store/todos-context";
 import Todo from "../models/todo";
+import classes from "./TodoFix.module.css";
 
 const TodoFix: React.FC<{ todo: Todo; handleFixTodoState: () => void }> = ({
   todo,
@@ -22,7 +23,7 @@ const TodoFix: React.FC<{ todo: Todo; handleFixTodoState: () => void }> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={classes.form} onSubmit={handleSubmit}>
       <input type="text" value={text} onChange={handleChange} />
       <button>수정완료</button>
     </form>

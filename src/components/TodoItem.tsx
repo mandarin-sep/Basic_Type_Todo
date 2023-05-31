@@ -23,9 +23,13 @@ const TodoItem: React.FC<{
         <TodoFix todo={todo} handleFixTodoState={handleFixTodoState} />
       ) : (
         <>
-          {todo.text}
-          <button onClick={handleFixTodoState}>수정</button>
-          <button onClick={handleClick}>삭제</button>
+          <span>{todo.text}</span>
+          <button className={classes.fixBtn} onClick={handleFixTodoState}>
+            수정
+          </button>
+          <button className={classes.deleteBtn} onClick={handleClick}>
+            삭제
+          </button>
         </>
       )}
     </li>

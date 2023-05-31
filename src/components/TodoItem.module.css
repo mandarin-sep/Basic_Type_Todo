@@ -3,4 +3,29 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   background-color: #f7f5ef;
+  display: flex;
+  align-items: center;
+}
+
+.item span {
+  flex-grow: 1;
+}
+
+.fixBtn {
+  font: inherit;
+  padding: 0.5rem 0.5rem;
+  background-color: #ebb002;
+  border: 1px solid #ebb002;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.deleteBtn {
+  font: inherit;
+  padding: 0.5rem 0.5rem;
+  background-color: #ebb002;
+  border: 1px solid #ebb002;
+  border-radius: 4px;
+  cursor: pointer;
 }
