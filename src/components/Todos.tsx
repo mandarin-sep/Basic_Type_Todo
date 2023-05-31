@@ -5,6 +5,8 @@ import { TodosContext } from "../store/todos-context";
 
 const Todos: React.FC = () => {
   const { items, removeTodo } = useContext(TodosContext);
+
+  localStorage.setItem("todoList", JSON.stringify(items));
   return (
     <ul className={classes.todos}>
       {items.map((item) => (
