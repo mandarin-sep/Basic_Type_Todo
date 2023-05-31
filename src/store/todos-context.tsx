@@ -18,7 +18,11 @@ export const TodosContext = React.createContext<TodosContextObj>({
 const TodosContextProvider: React.FC<{ children: React.ReactNode }> = (
   props
 ) => {
-  const [todolist, setTodolist] = useState<Todo[]>([]);
+  const initData = localStorage.getItem("todoList");
+
+  const [todolist, setTodolist] = useState<Todo[]>(
+    JSON.parse(initData ? initData : "[]")
+  );
 
   const addTodoHandler = (todoText: string) => {
     setTodolist(todolist.concat(new Todo(todoText)));
@@ -30,11 +34,10 @@ const TodosContextProvider: React.FC<{ children: React.ReactNode }> = (
 
   const fixTodoHandler = (target: string, fixedTodo: string) => {
     const fixedTodoList = todolist.map((todo) => {
-      if (todo.id === target) return { text: fixedTodo, id: todo.id };
+      if (todo.id === target) return new Todo(fixedTodo);
 
       return todo;
     });
-
     setTodolist(fixedTodoList);
   };
 
