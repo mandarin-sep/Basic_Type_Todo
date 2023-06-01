@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import classes from "./Todos.module.css";
 import { TodosContext } from "../store/todos-context";
 
-const Todos: React.FC = () => {
+const Todos = (): JSX.Element => {
   const { items, removeTodo } = useContext(TodosContext);
 
   localStorage.setItem("todoList", JSON.stringify(items));

@@ -3,10 +3,12 @@ import { TodosContext } from "../store/todos-context";
 import Todo from "../models/todo";
 import classes from "./TodoFix.module.css";
 
-const TodoFix: React.FC<{ todo: Todo; handleFixTodoState: () => void }> = ({
-  todo,
-  handleFixTodoState,
-}) => {
+interface FixProps {
+  todo: Todo;
+  handleFixTodoState: () => void;
+}
+
+const TodoFix = ({ todo, handleFixTodoState }: FixProps): JSX.Element => {
   const { fixTodo } = useContext(TodosContext);
 
   const [text, setText] = useState(todo.text);

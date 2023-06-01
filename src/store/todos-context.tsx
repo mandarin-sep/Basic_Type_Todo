@@ -15,9 +15,9 @@ export const TodosContext = React.createContext<TodosContextObj>({
   fixTodo: (id: string, fixedTodo: string) => {},
 });
 
-const TodosContextProvider: React.FC<{ children: React.ReactNode }> = (
-  props
-) => {
+const TodosContextProvider = (props: {
+  children: React.ReactNode;
+}): JSX.Element => {
   const initData = localStorage.getItem("todoList");
 
   const [todolist, setTodolist] = useState<Todo[]>(

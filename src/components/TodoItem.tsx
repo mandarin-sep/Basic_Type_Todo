@@ -3,10 +3,12 @@ import classes from "./TodoItem.module.css";
 import Todo from "../models/todo";
 import TodoFix from "./TodoFix";
 
-const TodoItem: React.FC<{
+interface ItemProps {
   todo: Todo;
   removeTodo: (target: string) => void;
-}> = ({ removeTodo, todo }) => {
+}
+
+const TodoItem = ({ removeTodo, todo }: ItemProps) => {
   const handleClick = () => {
     removeTodo(todo.id);
   };
