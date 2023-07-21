@@ -5,6 +5,7 @@ import { TodosContext } from "../store/todos-context";
 const NewTodo = (): JSX.Element => {
   const todoTextInputRef = useRef<HTMLInputElement>(null);
   const { onAddTodo } = useContext(TodosContext);
+  console.log("hi");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
